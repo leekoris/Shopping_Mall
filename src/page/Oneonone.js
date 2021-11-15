@@ -7,7 +7,7 @@ import { useState } from 'react';
 //https://falaner.tistory.com/59?category=898434
 export function Oneonone() {
 
-const [movieContent, setMovieContent] = useState({
+const [Content, setContent] = useState({
    title: '',
    content: ''
 })
@@ -15,11 +15,11 @@ const [viewContent, setViewContent] = useState([]);
 
   const getValue = e => {
      const {name, value } = e.target;
-     setMovieContent({
-       ...movieContent, 
+     setContent({
+       ...Content, 
        [name]: value
      })
-     console.log(movieContent);
+     console.log(Content);
   };
 
 
@@ -49,15 +49,15 @@ const [viewContent, setViewContent] = useState([]);
                     onReady={editor => {
                         // You can store the "editor" and use when it is needed.
                         console.log('Editor is ready to use!', editor);
-                    }}
+                    }} 
                     onChange={(event, editor) => {
                         const data = editor.getData();
                         console.log({event, editor, data});
-                        setMovieContent({
-                          ...movieContent,
+                        setContent({
+                          ...Content,
                           content: data
                         })
-                        console.log(movieContent);
+                        console.log(Content);
                     }}
                     onBlur={(event, editor) => {
                         console.log('Blur.', editor);
@@ -68,7 +68,7 @@ const [viewContent, setViewContent] = useState([]);
             </div>
             <button className="submit-button"
             onClick={()=> {
-              setViewContent(viewContent.concat({...movieContent}));
+              setViewContent(viewContent.concat({...Content}));
             }}>등록 </button>
 
 </div>

@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import { Route , Link } from 'react-router-dom';
+import ReviewInsert from './ReviewInsert';
 
- function ReviewList() {
+
+
+export default function ReviewList() {
 
     const [users, setUsers] = useState("");  // axios를 통해 json에서 데이터를 끄집어 내기 위한 곳
     const [loading, setLoading] = useState(false);   //  로딩을 위한 변수와 함수 설정
@@ -38,18 +42,24 @@ import axios from 'axios';
         console.log(users);
     return ( 
 
+
+     
+
         
         <div className="review_item">
                 <h2>  리뷰 게시판 </h2>
 
-         
-
-
-
+          
+<Route>
+ <Link to ="/review/ReviewInsert">
+       <button> 리뷰 등록 </button>
+</Link>
+</Route>
 	  {
                    users.reviews.map(user => (<>
                             <tr>
                                 {user.product}
+                             /*map 처리*/
                                 <img src={user.images.image}/>
                             </tr>
                             <tr>
@@ -63,7 +73,13 @@ import axios from 'axios';
               
         
         </div>
+
+
+                    
     );
+
+              
+
+
 }
 
-export default ReviewList

@@ -12,11 +12,12 @@ import {
   productsPage,
   faq,
   Oneonone,
-  notice
+  notice,
+  ReviewInsert
 } from "page"; //  page폴더 내의 index파일에 export할 페이지들을 한꺼번에 모아놓고 이 페이지들을 import해줄 때 한줄로 편하게 사용하기위함
 
 
-export default function Router() {
+function Router() {
   return (
     <Content>
     <hr/>
@@ -36,6 +37,9 @@ export default function Router() {
         <Route exact path="/cs/faq" component={faq} />
         <Route exact path="/cs/Oneonone" component={Oneonone} />
         <Route exact path="/cs/notice" component={notice} />
+        <Route exact path="/review/ReviewInsert" component={ReviewInsert} />
+
+
         <Route exact path="*" component={ErrorPage} />
 
     </Switch>
@@ -44,5 +48,7 @@ export default function Router() {
     
   );
 }
+
+export default Router;
 
 const Content = styled.div``;

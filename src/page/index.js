@@ -9,4 +9,6 @@ export { ErrorPage } from "./404page";
 export { faq } from "./faq";
 export { notice } from "./notice";
 export { Oneonone } from "./Oneonone";
+export { ReviewInsert } from "./ReviewInsert";
+
 
